@@ -47,11 +47,11 @@
 \pagebreak
 \tableofcontents
 \newpage
-\section{Dataset}
+\section{Introduction}
 Many people in the world take joy in drinking wine although many of them do not have a clue about what they are actually drinking and what makes their wine taste better then others. Many people go to wine-connaisseurs for advice, or enter liquor stores where usually someone has some knowledge about wines, to help give advice on the purchase. However, it has many properties which can be measured other than the year. For example, sweetness, acidity and even chlorides play a part in the taste \'and quality of the wine. Not even the best and most experienced connaisseurs can possibly have tasted and formed an opinion on every wine in existance. Which means that it can be bennificial to have a way to objectively analyze wines to help determine which wines are expected to be good and which are not. Ofcourse the same principle also applies to producers of wine, who can use the conclusions to see whether their new wine stands any chance of being succesfull.
 
 \section{Analysis of the data}
-TODO
+Looking at the data we immediately see that there is a single very important variable, which in the end is the reason of interest for the data, the quality. The idea would be that there is some function from a (strict) subset of the properties to the quality. Since we have to work with measured quantities we have to look at numerical analysis. Since the data we have only applies to a single wine and at first the data looks very uncorrelated we decided to try a standard visualisation (scatter plot) and 3 tree based visualizations, such that all values can be seen related to eachother and in the end make it easier to see which factors actually determine which wines will be good and which won't.
 
 
 \section{Visualizations}
@@ -79,10 +79,47 @@ The average tree does the same as the interval tree, except it uses the average 
 This is usefull when the measurements are very unbalanced, for example: one measurement is ten times bigger then all other measurements. If the program has to devide the total interval in 3 sections, we get 1 green leaf, while all intermittent values are not visible since they have a size of 0 and a node of size nearly 100\% containing all but the very big valued wine, which obviously does not give a desired result.
 
 \section{Results}
-TODO
+When we loaded the dataset for white win and started by analyzing the interval tree we get the picture as can be seen in figure \ref{oit}. In the top left, we see big differences in the size of the leaves. Which means that this probably is an interesting corner. After zooming in - as can be seen in figure \ref{ait} - we can finaly analyze the results.
+
+
+From the tree we can see that wines of a better quality have a relativly high alcohol percentage. Which becomes obvious by looking at the size and color from the squares. This is remarkable since it would infer that there is a correlation between the alcohol percentage and quality of wine.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=\textwidth]{images/20131105033557plot.png}
+  \caption{Overview with the Interval Tree}
+  \label{oit}
+\end{figure}
+
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=\textwidth]{images/20131105034138plot.png}
+  \caption{The alcohol branche in more detail}
+  \label{ait}
+\end{figure}
+
+As can be seen, a graph like the interval tree does not always give nice results. As can be seen when looking at the density as shown in figure \ref{rsit}. Even when the number of intervals is increased to 5, we still get a very unbalanced result, which makes the interval tree clearly useless for the analysis of the densisty.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=\textwidth]{images/20131105041005plot.png}
+  \caption{The density branch in more detail in the Interval Tree}
+  \label{rsit}
+\end{figure}
+
+When using the average tree however, the results are much better as can be seen in figure \ref{rsmt}, we can now clearly see that a lower density is better then a high density.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=\textwidth]{images/20131105041127plot.png}
+  \caption{The density branch in more detail in the Median Tree}
+  \label{rsmt}
+\end{figure}
 
 \section{Conclusion}
-Using our visualizations we see that a top wine usually has a relatively high alcohol and sulfur dioxide concentration while the concentration of chlorides, total and residual sulfur dioxide.
+For the analysis we could clearly see that our application works, although it is not always helpfull in finding the actual answers we are looking for, multiple visualizations have to be used in order to branch down to the actual answer. We tried to add a feature to the program so that it would be able to link the visualizations together, but did not manage to get this to work properly. We expect that if this worked, we could much easier see the correlation between the datapoints and what actually makes a good wine. Since we could start eliminating unhelpfull parameters, while keeping more valuable one included. \\
 
+However, we did manage to produce visualizations which actually helped determining what makes a high quality wine, which is a (relatively) high alcohol and sulfur dioxide concentration while the concentration of chlorides and total and residual sulfur dioxide is low.
 
 \end{document}

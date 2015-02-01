@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.1.11)  1 FEB 2015 20:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.1.11)  1 FEB 2015 23:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -264,28 +264,79 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
-[3] [4] (./Report_JvOorschot_0721913_MHLPluijmaekers_0753117.aux) ) 
+[3] <images/20131105033557plot.png, id=18, 1702.36pt x 1069.9975pt>
+File: images/20131105033557plot.png Graphic file (type png)
+
+<use images/20131105033557plot.png>
+Package pdftex.def Info: images/20131105033557plot.png used on input line 89.
+(pdftex.def)             Requested size: 442.65375pt x 278.22543pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/20131105034138plot.png, id=19, 1702.36pt x 1069.9975pt>
+File: images/20131105034138plot.png Graphic file (type png)
+
+<use images/20131105034138plot.png>
+Package pdftex.def Info: images/20131105034138plot.png used on input line 97.
+(pdftex.def)             Requested size: 442.65375pt x 278.22543pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/20131105041005plot.png, id=20, 1702.36pt x 1069.9975pt>
+File: images/20131105041005plot.png Graphic file (type png)
+
+<use images/20131105041005plot.png>
+Package pdftex.def Info: images/20131105041005plot.png used on input line 106.
+(pdftex.def)             Requested size: 442.65375pt x 278.22543pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/20131105041127plot.png, id=21, 1702.36pt x 1069.9975pt>
+File: images/20131105041127plot.png Graphic file (type png)
+
+<use images/20131105041127plot.png>
+Package pdftex.def Info: images/20131105041127plot.png used on input line 115.
+(pdftex.def)             Requested size: 442.65375pt x 278.22543pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
+
+ []
+
+[4] [5 <./images/20131105033557plot.png (PNG copy)>] [6 <./images/2013110503413
+8plot.png (PNG copy)> <./images/20131105041005plot.png (PNG copy)>] [7 <./image
+s/20131105041127plot.png (PNG copy)>]
+(./Report_JvOorschot_0721913_MHLPluijmaekers_0753117.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2690 strings out of 493308
- 35877 string characters out of 6137822
- 97820 words of memory out of 5000000
- 6099 multiletter control sequences out of 15000+600000
+ 2717 strings out of 493308
+ 36544 string characters out of 6137822
+ 99852 words of memory out of 5000000
+ 6120 multiletter control sequences out of 15000+600000
  13014 words of font info for 49 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,10n,44p,1028b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/
-texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/t
-exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
-xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
-live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
-ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
-/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texliv
-e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Report_JvOorschot_0721913_MHLPluijmaekers_0753117.pdf (4 page
-s, 89803 bytes).
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Report_JvOorschot_0721913_MHLPluijmaekers_0753117.pdf (7 page
+s, 653624 bytes).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

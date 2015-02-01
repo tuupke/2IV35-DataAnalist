@@ -1,4 +1,4 @@
-\contentsline {section}{\numberline {1}Dataset}{3}
+\contentsline {section}{\numberline {1}Introduction}{3}
 \contentsline {section}{\numberline {2}Analysis of the data}{3}
 \contentsline {section}{\numberline {3}Visualizations}{3}
 \contentsline {subsection}{\numberline {3.1}Scatter plot}{3}
@@ -6,4 +6,4 @@
 \contentsline {subsection}{\numberline {3.3}Median tree}{4}
 \contentsline {subsection}{\numberline {3.4}Average tree}{4}
 \contentsline {section}{\numberline {4}Results}{4}
-\contentsline {section}{\numberline {5}Conclusion}{4}
+\contentsline {section}{\numberline {5}Conclusion}{5}
