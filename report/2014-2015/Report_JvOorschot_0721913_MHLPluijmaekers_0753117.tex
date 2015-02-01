@@ -1,0 +1,82 @@
+\documentclass[a4paper,twoside,11pt]{article}
+\usepackage{a4wide,graphicx,fancyhdr,amsmath,amssymb}
+\usepackage{algorithmic}
+
+%----------------------- Macros and Definitions --------------------------
+
+\setlength\headheight{20pt}
+\addtolength\topmargin{-10pt}
+\addtolength\footskip{20pt}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ch}{\mathcal{CH}}
+\everymath{\displaystyle}
+\newcommand{\solution}[1]{\noindent{\bf Solution to Exercise #1:}}
+
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyhead[LO,RE]{\sffamily\bfseries\large Technische universiteit Eindhoven}
+\fancyhead[RO,LE]{\sffamily\bfseries\large 2IV35 Visualization}
+\fancyfoot[LO,RE]{\sffamily\bfseries\large department of mathematics and computer science}
+\fancyfoot[RO,LE]{\sffamily\bfseries\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO,LE]{\sffamily\bfseries\large Technische universiteit Eindhoven}
+\fancyhead[LO,RE]{\sffamily\bfseries\large 2IV35 Visualization}
+\fancyfoot[LO,RE]{\sffamily\bfseries\large department of mathematics and computer science}
+\fancyfoot[RO,LE]{\sffamily\bfseries\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%-------------------------------- Title ----------------------------------
+
+\title{\vspace{-\baselineskip}\sffamily\bfseries 2IV35 Visualization Set 2}
+\author{Jeroen van Oorschot \qquad Student number: 0721913 \\{\tt j.v.oorschot@student.tue.nl}\\ \\Mart Pluijmaekers \qquad Student number: 0753117 \\{\tt m.h.l.pluijmaekers@student.tue.nl}}
+
+\date{\today}
+
+%--------------------------------- Text ----------------------------------
+
+\begin{document}
+\maketitle
+
+\pagebreak
+\tableofcontents
+\newpage
+\section{Dataset}
+Many people in the world take joy in drinking wine although many of them do not have a clue about what they are actually drinking and what makes their wine taste better then others. Many people go to wine-connaisseurs for advice, or enter liquor stores where usually someone has some knowledge about wines, to help give advice on the purchase. However, has many properties which can be measured other than the year. For example, sweetness, acidity and even chlorides play a part in the taste \'and quality of the wine. Not even the best and most experienced connaisseurs can possibly have tasted and formed an opinion on every wine in existance. Which means that it can be bennificial to have a way to objectively analyze wines to help determine which wines are expected to be good and which are not.
+
+\section{Analysis of the data}
+TODO
+
+
+\section{Visualizations}
+The visualizations listed in this section are implmented to help analyze the dataset
+
+\subsection{Scatter plot}
+Since we are interested in correlation of data, it makes sense to use a scatter plot since it can visualize this correlation. As the dataset already has a quality parameter available, we want to (possibly) correlate all other parameters to the listed quality. Using this analysis it will become possible to see which parameters influence the quality more and which influence it less. \\
+
+Usefullness of this visualization would be limited if all differences in measurements are very small and therefor the datapoints would lie close to each other. On the other hand, if the differences are big, but no corrolation is found, scatter plots are useless too.
+
+\subsection{Interval tree}
+The interval tree is a specialized visualization for this dataset. The root of the tree has children for all columns and each of these children has children for every existing quality. When creating the interval tree, input of the user is required in the form of a number ($n$) of interval requires, the program then creates $n$ equal devisions represented as children. Those children then get colored, the lowest is red, while the highest is green, all other children are colored using a linear interpolation from red to yellow and yellow to green.\\
+
+The size of the children depicts the 
+
+\subsection{Median tree}
+The median tree is very similar to the interval tree, except that it only has two devisions for every quality. The first for the data bigger then the midian, while the latter is for all data smaller then the median.\\
+
+This is usefull since when the measurements are very unbalanced, assume one measurement is ten times bigger then all other. If then the program has to devide the total interval in 3 sections, we get 1 green leave, while all other leaves are red and have a size of almost 100\%, which obviously does not help.
+
+\section{Results}
+TODO
+
+\section{Conclusion}
+Using our visualizations we see that a top wine usually has a relatively high alcohol and sulfur dioxide concentration while the concentration of chlorides, total and residual sulfur dioxide.
+
+
+\end{document}

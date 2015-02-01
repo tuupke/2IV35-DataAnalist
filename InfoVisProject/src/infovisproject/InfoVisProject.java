@@ -37,7 +37,8 @@ public class InfoVisProject {
 
     public static void main(String[] argv) {
         // Load multivariate data as a table from a CSV file.
-        String data = "../set3_data/wine/wine_red.csv";
+
+        String data = "../set3_data/wine/wine_white.csv";
 
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File("../"));
@@ -83,6 +84,7 @@ public class InfoVisProject {
             final JToolBar toolbar = new JToolBar();
             toolbar.setLayout(new BoxLayout(toolbar, BoxLayout.X_AXIS));
             toolbar.add(Box.createHorizontalStrut(spacing));
+
             final JComboBox cb = new JComboBox(new String[]{"Scatter plot", "Interval Tree", "Median Tree", "Average Tree"});
             cb.setSelectedItem("Scatter plot");
             cb.addActionListener(new ActionListener() {
@@ -153,6 +155,7 @@ public class InfoVisProject {
     }
 
     static void MedT(Table table) {
+
         int ans = -1;
         try {
             ans = Integer.parseInt(JOptionPane.showInputDialog(frame, "How many intervals do you want?"));

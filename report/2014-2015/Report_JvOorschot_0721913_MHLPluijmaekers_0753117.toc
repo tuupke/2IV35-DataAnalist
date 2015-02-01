@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Dataset}{3}
+\contentsline {section}{\numberline {2}Analysis of the data}{3}
+\contentsline {section}{\numberline {3}Visualizations}{3}
+\contentsline {subsection}{\numberline {3.1}Scatter plot}{3}
+\contentsline {subsection}{\numberline {3.2}Interval tree}{3}
+\contentsline {subsection}{\numberline {3.3}Median tree}{3}
+\contentsline {section}{\numberline {4}Results}{4}
+\contentsline {section}{\numberline {5}Conclusion}{4}

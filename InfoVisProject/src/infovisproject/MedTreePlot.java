@@ -54,7 +54,6 @@ import prefuse.visual.expression.InGroupPredicate;
  */
 public class MedTreePlot extends Display {
 
-
     public static final String GROUP = "data";
     // Renders markers as attribute-derived shapes
     // with a base size of 10 pixels.
@@ -115,7 +114,6 @@ public class MedTreePlot extends Display {
         for (int t = 0; t < table.getRowCount(); t++) {
             Tuple tuple = table.getTuple(t);
             for (int i = 0; i < colnames.length; ++i) {
-                
 //                System.out.println((Double)tuple.get((String) colnames[i].get("Label")));
 //                System.out.println(range[i][0]);
 //                System.out.println(range[i][1]);
@@ -149,10 +147,10 @@ public class MedTreePlot extends Display {
                     n.set("Size", 10 );
                     n.set("Colour", 2+ (int)(values[i][1][s] * 1.0 / values[i][0][s]) );
                     graph.addEdge(colnames[i], n);
-                    
                 }
             }
         }
+
 
 //            n = graph.addNode();
 //            String name = (String) colnames[i].get("Label");
@@ -163,9 +161,10 @@ public class MedTreePlot extends Display {
 //            n.set("Label", "min");
 //            n.set("Size", table.get(table.getMetadata(name).getMinimumRow(), name));
 //            graph.addEdge(colnames[i], n);
+
         Renderer nodeR = new FinalRenderer();
         EdgeRenderer edgeR = new EdgeRenderer(prefuse.Constants.EDGE_TYPE_CURVE, prefuse.Constants.EDGE_ARROW_FORWARD);
-
+		
         m_vis.add("graph", graph);// draw the "name" label for NodeItems
         DefaultRendererFactory drf = new DefaultRendererFactory();
         drf.setDefaultRenderer(nodeR);
@@ -210,7 +209,9 @@ public class MedTreePlot extends Display {
 
         m_vis.addDecorators("nodedec", "graph.nodes", DECORATOR_SCHEMA);
 
+
 // create an action list containing all color assignments
+
         color.add(edges);
 
         ActionList layout = new ActionList(Activity.INFINITY);
@@ -228,6 +229,7 @@ public class MedTreePlot extends Display {
         addControlListener(new DragControl());
         addControlListener(new PanControl());
         addControlListener(new ZoomControl());
+
 
         m_vis.run("color");
         m_vis.run("layout");
