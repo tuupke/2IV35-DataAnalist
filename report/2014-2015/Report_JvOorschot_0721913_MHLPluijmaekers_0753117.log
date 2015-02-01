@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.1.11)  1 FEB 2015 12:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.1.11)  1 FEB 2015 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -249,28 +249,43 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 \tf@toc=\write3
 \openout3 = `Report_JvOorschot_0721913_MHLPluijmaekers_0753117.toc'.
 
- [2] [3]
-(./Report_JvOorschot_0721913_MHLPluijmaekers_0753117.aux) ) 
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+[3] [4] (./Report_JvOorschot_0721913_MHLPluijmaekers_0753117.aux) ) 
 Here is how much of TeX's memory you used:
- 2684 strings out of 493308
- 35778 string characters out of 6137822
- 95820 words of memory out of 5000000
- 6093 multiletter control sequences out of 15000+600000
- 11459 words of font info for 43 fonts, out of 8000000 for 9000
+ 2690 strings out of 493308
+ 35877 string characters out of 6137822
+ 96820 words of memory out of 5000000
+ 6099 multiletter control sequences out of 15000+600000
+ 13014 words of font info for 49 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,10n,44p,710b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/
-2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2
-013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/20
-13/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2013/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Report_JvOorschot_0721913_MHLPluijmaekers_0753117.pdf (3 page
-s, 73200 bytes).
+ 38i,11n,44p,865b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/t
+exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
+ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
+/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texliv
+e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Report_JvOorschot_0721913_MHLPluijmaekers_0753117.pdf (4 page
+s, 88368 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+ 45 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
