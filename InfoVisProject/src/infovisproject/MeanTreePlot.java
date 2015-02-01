@@ -44,26 +44,28 @@ import prefuse.visual.VisualItem;
 import prefuse.visual.expression.InGroupPredicate;
 
 /**
- * A simple visualization that can show three attributes of data items at the
- * same time, in the form of markers on a scatter plot: - Numeric attribute to
- * the marker X-coordinate; - Numeric attribute to the marker Y-coordinate; -
- * Nominal attribute to the marker shape.
+ * A simple visualization that can show three attributes 
+ * of data items at the same time, in the form of markers
+ * on a scatter plot:
+ * - Numeric attribute to the marker X-coordinate;
+ * - Numeric attribute to the marker Y-coordinate;
+ * - Nominal attribute to the marker shape.
  *
- * This code is derived from the Prefuse demo files, which are authored by
- * Jeffrey Heer.
+ * This code is derived from the Prefuse demo files,
+ * which are authored by Jeffrey Heer.
  */
-public class MedTreePlot extends Display {
+public class MeanTreePlot extends Display {
 
-
+    private static final int NUMOFSETS = 2;
     public static final String GROUP = "data";
     // Renders markers as attribute-derived shapes
     // with a base size of 10 pixels.
     private ShapeRenderer shapeRenderer = new ShapeRenderer(10);
 
     /**
-     *
+     * 
      */
-    public MedTreePlot(Table table, int NUMOFSETS) {
+    public MeanTreePlot(Table table) {
         super(new Visualization());
         DecimalFormat one = new DecimalFormat("#0.0000");
 
@@ -85,7 +87,7 @@ public class MedTreePlot extends Display {
             if (!table.getColumnName(i).equals("quality")) {
                 n = graph.addNode();
                 n.set("Label", table.getColumnName(i));
-                n.set("Size", 31);
+                n.set("Size", 40);
                 n.set("Colour", 1);
                 colnames[e] = n;
                 graph.addEdge(root, n);
@@ -93,39 +95,30 @@ public class MedTreePlot extends Display {
             }
         }
 
-        int[][][] values = new int[colnames.length][2][NUMOFSETS];
-        double[][] range = new double[colnames.length][NUMOFSETS - 1];
+        int[][][] values = new int[colnames.length][11][NUMOFSETS + 1];
+        double[] range = new double[colnames.length];
 
         for (int i = 0; i < colnames.length; ++i) {
             String name = (String) colnames[i].get("Label");
-            double[] temp = new double[table.getRowCount()];
-            for (int t = 0; t < table.getRowCount(); t++) {
-                Tuple tuple = table.getTuple(t);
-                temp[t] = (Double) tuple.get(name);
-            }
-            Arrays.sort(temp);
-            for (int s = 0; s < NUMOFSETS - 1; s++) {
-                //System.out.println((int) (temp.length * ((s + 1.0) / NUMOFSETS)));
-                range[i][s] = temp[(int) (temp.length * ((s + 1.0) / NUMOFSETS))];
-
-            }
+            range[i] = (Double) table.getMetadata(name).getMean();
         }
-        //System.out.println(Arrays.deepToString(range));
+
 
         for (int t = 0; t < table.getRowCount(); t++) {
             Tuple tuple = table.getTuple(t);
             for (int i = 0; i < colnames.length; ++i) {
-                
+                values[i][(Integer) tuple.get("quality")][NUMOFSETS] += 1;
 //                System.out.println((Double)tuple.get((String) colnames[i].get("Label")));
 //                System.out.println(range[i][0]);
 //                System.out.println(range[i][1]);
 //                System.out.println("ans "+(int)(((Double)tuple.get((String) colnames[i].get("Label"))-range[i][0])/range[i][1]));
-                int setNum=0;
-                while(setNum<NUMOFSETS-1 && (Double) tuple.get((String) colnames[i].get("Label")) >= range[i][setNum]){
-                    setNum++;
-                }           
-                values[i][0][setNum] += 1;
-                values[i][1][setNum] += (Integer) tuple.get("quality");
+                int setNum;
+                if ((Double) tuple.get((String) colnames[i].get("Label")) <= range[i]) {
+                    setNum = 0;
+                } else {
+                    setNum = 1;
+                }
+                values[i][(Integer) tuple.get("quality")][setNum] += 1;
 //                values[i][(Integer) tuple.get("type")][(Integer) tuple.get("quality")][NUMOFSETS] += 1;
             }
         }
@@ -133,26 +126,33 @@ public class MedTreePlot extends Display {
 //        System.out.println(colnames.length);
 
         for (int i = 0; i < colnames.length; ++i) {
-            for (int s = 0; s < NUMOFSETS; s++) {
-                if (values[i][0][s] > 0) {
-                    String lab;
-                    if(s==0){
-                       lab = "<" +  one.format(range[i][0]);
-                    }else if(s==NUMOFSETS-1){
-                       lab = ">" +  one.format(range[i][s-1]); 
-                    }else{
-                        lab = ">" +  one.format(range[i][s-1]) +" &\n"+"<" + one.format( range[i][s]); 
-                    }
-                    lab += "\n avr=" + one.format((values[i][1][s] * 1.0 / values[i][0][s])) ;
+            for (int q = 0; q < 11; q++) {
+                if (values[i][q][NUMOFSETS] > 0) {
                     n = graph.addNode();
-                    n.set("Label", "" + lab);
-                    n.set("Size", 10 );
-                    n.set("Colour", 2+ (int)(values[i][1][s] * 1.0 / values[i][0][s]) );
+                    n.set("Label", "" + q);
+                    n.set("Size", 10);
+                    n.set("Colour", 0);
                     graph.addEdge(colnames[i], n);
-                    
+                    for (int s = 0; s < NUMOFSETS; s++) {
+                        Node sn = graph.addNode();
+                        String lab;
+                        if (s == 0) {
+                            lab = "<=" + one.format(range[i]);
+                        } else {
+                            lab = ">" + one.format(range[i]);
+                        }
+                        sn.set("Label", lab + "\n " + one.format((values[i][q][s] * 1.0 / values[i][q][NUMOFSETS]) * 100) + "%");
+                        sn.set("Size", (values[i][q][s] * 1.0 / values[i][q][NUMOFSETS]) * 31);
+                        sn.set("Colour", s + 2);
+                        graph.addEdge(sn, n);
+
+                    }
                 }
             }
         }
+
+
+
 
 //            n = graph.addNode();
 //            String name = (String) colnames[i].get("Label");
@@ -163,8 +163,10 @@ public class MedTreePlot extends Display {
 //            n.set("Label", "min");
 //            n.set("Size", table.get(table.getMetadata(name).getMinimumRow(), name));
 //            graph.addEdge(colnames[i], n);
+
         Renderer nodeR = new FinalRenderer();
         EdgeRenderer edgeR = new EdgeRenderer(prefuse.Constants.EDGE_TYPE_CURVE, prefuse.Constants.EDGE_ARROW_FORWARD);
+
 
         m_vis.add("graph", graph);// draw the "name" label for NodeItems
         DefaultRendererFactory drf = new DefaultRendererFactory();
@@ -172,16 +174,10 @@ public class MedTreePlot extends Display {
         drf.setDefaultEdgeRenderer(edgeR);
         m_vis.setRendererFactory(drf);
 
-        int[] palette = new int[10+2];
-        palette[0]=ColorLib.rgb(200, 200, 200);
-        palette[1]=ColorLib.rgb(0, 0, 255);
-        for (int s = 0; s < 10; s++) {
-            if( s <= 10/2){
-                palette[s+2]=ColorLib.rgb(255, (int)(255*((s*2)/(10-1.0))), 0);
-            }else{
-                palette[s+2]=ColorLib.rgb(512-(int)(255*((s*2)/(10-1.0))),255, 0);
-            }
-        }
+
+        int[] palette = new int[]{
+            ColorLib.rgb(200, 200, 200), ColorLib.rgb(0, 0, 255), ColorLib.rgb(255, 0, 0), ColorLib.rgb(0, 255, 0)
+        };
 
         DataColorAction nFill = new DataColorAction("graph.nodes", "Colour",
                 Constants.NOMINAL, VisualItem.FILLCOLOR, palette);
@@ -199,18 +195,22 @@ public class MedTreePlot extends Display {
         ActionList size = new ActionList();
         size.add(nSize);
 
+
         drf.add(new InGroupPredicate("nodedec"), new LabelRenderer("Label"));
 
         final Schema DECORATOR_SCHEMA = PrefuseLib.getVisualItemSchema();
         DECORATOR_SCHEMA.setDefault(VisualItem.INTERACTIVE, false);
         DECORATOR_SCHEMA.setDefault(VisualItem.TEXTCOLOR,
-                ColorLib.rgb(0, 0, 0));
+                 ColorLib.rgb(0,0,0));
         DECORATOR_SCHEMA.setDefault(VisualItem.FONT,
                 FontLib.getFont("Tahoma", 5));
 
         m_vis.addDecorators("nodedec", "graph.nodes", DECORATOR_SCHEMA);
 
+
 // create an action list containing all color assignments
+
+
         color.add(edges);
 
         ActionList layout = new ActionList(Activity.INFINITY);
@@ -228,6 +228,7 @@ public class MedTreePlot extends Display {
         addControlListener(new DragControl());
         addControlListener(new PanControl());
         addControlListener(new ZoomControl());
+                
 
         m_vis.run("color");
         m_vis.run("layout");

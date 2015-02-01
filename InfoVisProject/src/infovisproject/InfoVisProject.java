@@ -37,7 +37,7 @@ public class InfoVisProject {
 
     public static void main(String[] argv) {
         // Load multivariate data as a table from a CSV file.
-        String data = "../set3_data/wine/wine_white.csv";
+        String data = "../set3_data/wine/wine_red.csv";
 
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File("../"));
@@ -83,7 +83,7 @@ public class InfoVisProject {
             final JToolBar toolbar = new JToolBar();
             toolbar.setLayout(new BoxLayout(toolbar, BoxLayout.X_AXIS));
             toolbar.add(Box.createHorizontalStrut(spacing));
-            final JComboBox cb = new JComboBox(new String[]{"Scatter plot", "Interval Tree", "Median Tree"});
+            final JComboBox cb = new JComboBox(new String[]{"Scatter plot", "Interval Tree", "Median Tree", "Average Tree"});
             cb.setSelectedItem("Scatter plot");
             cb.addActionListener(new ActionListener() {
 
@@ -94,7 +94,9 @@ public class InfoVisProject {
                         IntTree(table);
                     } else if (((String) cb.getSelectedItem()).equals("Median Tree")) {
                         MedT(table);
-                    } else {
+                    } else if (((String) cb.getSelectedItem()).equals("Average Tree")) {
+                        AvrT(table);
+                    }else {
                         scat(table);
                     }
                     frame.pack();
@@ -151,7 +153,21 @@ public class InfoVisProject {
     }
 
     static void MedT(Table table) {
-        MedTreePlot tr = new MedTreePlot(table);
+        int ans = -1;
+        try {
+            ans = Integer.parseInt(JOptionPane.showInputDialog(frame, "How many intervals do you want?"));
+        } catch (Exception e) {
+            return;
+        }
+        if (ans < 1) {
+            return;
+        }
+        MedTreePlot tr = new MedTreePlot(table,ans);
+        frame.getContentPane().add(tr, BorderLayout.CENTER);
+    }
+    
+     static void AvrT(Table table) {
+        MeanTreePlot tr = new MeanTreePlot(table);
         frame.getContentPane().add(tr, BorderLayout.CENTER);
     }
 
