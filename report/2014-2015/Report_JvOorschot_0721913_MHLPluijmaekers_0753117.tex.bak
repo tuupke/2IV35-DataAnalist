@@ -65,10 +65,10 @@ Usefullness of this visualization would be limited if all differences in measure
 \subsection{Interval tree}
 The interval tree is a specialized visualization for this dataset. The root of the tree has children for all columns and each of these children has children for every existing quality. When creating the interval tree, input of the user is required in the form of a number ($n$) of interval requires, the program then creates $n$ equal devisions represented as children. Those children then get colored, the lowest is red, while the highest is green, all other children are colored using a linear interpolation from red to yellow and yellow to green.\\
 
-The size of the children depicts the
+The size of the children depicts the 
 
-\subsection{Average tree}
-The average tree is very similar to the interval tree, except that it only has two devisions for every quality. The first for the data bigger then the mean, while the latter is for all data smaller then the mean.\\
+\subsection{Median tree}
+The median tree is very similar to the interval tree, except that it only has two devisions for every quality. The first for the data bigger then the midian, while the latter is for all data smaller then the median.\\
 
 This is usefull since when the measurements are very unbalanced, assume one measurement is ten times bigger then all other. If then the program has to devide the total interval in 3 sections, we get 1 green leave, while all other leaves are red and have a size of almost 100\%, which obviously does not help.
 
